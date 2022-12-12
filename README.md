@@ -6,7 +6,9 @@ welcome! Just create a new "Issue" to let me know what I'm doing wrong.
 
 ## Plugins
 I am using following plugins:
-|| Name             | GitHub link                                    ||
+
+| Name              | GitHub link                                    |
+|-------------------|------------------------------------------------|
 | nvim-lspconfig    | https://github.com/neovim/nvim-lspconfig       |
 | completion-nvim   | https://github.com/nvim-lua/completion-nvim    |
 | coc.nvim          | https://github.com/neoclide/coc.nvim           |
