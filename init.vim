@@ -30,6 +30,10 @@ Plug 'mfussenegger/nvim-jdtls'
 " nvim-treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" DB
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+
 """" Editor Utilities and themes
 
 " NERDTree
@@ -50,6 +54,9 @@ Plug 'EdenEast/nightfox.nvim'
 " telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+
+" Games?
+Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
