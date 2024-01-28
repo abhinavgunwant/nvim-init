@@ -72,7 +72,6 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
     -- -------------------------------------------
     -- LSP Config
     -- -------------------------------------------
-    require'lspconfig'.tsserver.setup {}
 
     local nvim_lsp = require('lspconfig')
 
@@ -200,7 +199,7 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
     -- -------------------------------------------
     -- LSP: Add servers here...
     -- -------------------------------------------
-    local servers = { 'rust_analyzer' }
+    local servers = { 'rust_analyzer', 'tsserver' }
 
     for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
@@ -295,6 +294,8 @@ noremap <silent> g7 <Cmd>BufferGoto 7<CR>
 noremap <silent> g8 <Cmd>BufferGoto 8<CR>
 noremap <silent> g9 <Cmd>BufferGoto 9<CR>
 noremap <silent> g0 <Cmd>BufferLast<CR>
+nnoremap <silent> <A-<> <Cmd>BufferMovePrevious<CR>
+nnoremap <silent> <A->> <Cmd>BufferMoveNext<CR>
 
 " LSP shortcuts
 noremap <silent> ge <cmd>lua vim.diagnostic.open_float()<CR>" Opens errors in a floating screen
@@ -311,3 +312,4 @@ noremap <silent> <C-b> <cmd>lua require'dap'.toggle_breakpoint()<CR> " Set debug
 noremap <silent> <F8> <cmd>lua require'dap'.continue()<CR> " Continue debug execution
 noremap <silent> <F10> <cmd>lua require'dap'.step_over()<CR> " Setp over
 noremap <silent> <C-i> <cmd>lua require'dap'.repl.open()<CR> " Inspect
+
