@@ -70,6 +70,16 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 " LSP Configurations - see https://gist.github.com/mengwangk/570a6ceb8cd14e55f4d89ac865850418
 :lua << EOF
     -- -------------------------------------------
+    -- BarBar Config
+    -- -------------------------------------------
+    require('barbar').setup {
+        icons = { filetype = { enabled = true } },
+        animation = false,
+        auto_hide = true,
+        closeable = false,
+    }
+
+    -- -------------------------------------------
     -- LSP Config
     -- -------------------------------------------
 
@@ -271,13 +281,6 @@ EOF
 
 " Additional key maps
 :map <F3> :NERDTreeToggle<CR>
-
-" BarBar config
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.icons = v:true
-let bufferline.animation = v:false
-let bufferline.auto_hide = v:true
-let bufferline.closeable = v:false
 
 " BarBar shortcuts
 noremap <silent> gt <Cmd>BufferNext<CR>
