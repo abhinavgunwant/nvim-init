@@ -62,6 +62,10 @@ Plug 'EdenEast/nightfox.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 
+" Git
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive'
+
 " Games?
 Plug 'ThePrimeagen/vim-be-good'
 
@@ -167,8 +171,8 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
         buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
         buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
         -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-        buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-        buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+        buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+        buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
         buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
         -- Set some keybinds conditional on server capabilities
@@ -271,6 +275,11 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
             }
         }
     })
+
+    -- -------------------------------------------
+    -- Gitsigns
+    -- -------------------------------------------
+    require('gitsigns').setup()
 EOF
 
 " Additional key maps
@@ -309,4 +318,7 @@ noremap <silent> <C-b> <cmd>lua require'dap'.toggle_breakpoint()<CR> " Set debug
 noremap <silent> <F8> <cmd>lua require'dap'.continue()<CR> " Continue debug execution
 noremap <silent> <F10> <cmd>lua require'dap'.step_over()<CR> " Setp over
 noremap <silent> <C-i> <cmd>lua require'dap'.repl.open()<CR> " Inspect
+
+" Gitsigns
+noremap <silent>gp <cmd>Gitsigns preview_hunk<CR>
 
